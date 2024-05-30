@@ -10,9 +10,11 @@ CONFIG += c++17
 
 SOURCES += \
     main.cpp \
+    qicoe.cpp \
     widget.cpp
 
 HEADERS += \
+    qicoe.h \
     widget.h
 
 FORMS += \

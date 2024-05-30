@@ -10,6 +10,8 @@ Widget::Widget(QWidget *parent)
         QJsonObject rootObj ;
         rootObj.insert("name","china");
 
+        //*****************************************************************************/
+        //插入json数据时可以不仅仅为QString类型
         QJsonObject infoObj ;
         infoObj.insert("capital","NanChang");
         infoObj.insert("asian",true);
@@ -48,7 +50,6 @@ Widget::Widget(QWidget *parent)
     });
 
     connect(ui->btn_saveJson,&QPushButton::clicked,this,[=](){
-        ui->plainTextEdit->clear();
         QFile file(":/cityjson.txt");
         if(!file.open(QIODevice::ReadOnly)){
             qDebug()<<"文件打开失败";
@@ -68,6 +69,7 @@ Widget::Widget(QWidget *parent)
         for(int i = 0;i<jsonData.size();i++){
             QString key = keys[i];
             //qDebug()<<key<<":";
+            qDebug()<<key;
             QJsonValue value = jsonData.value(key);
             if(value.isBool()){
                 qDebug()<<key<<":bool:"<<value.toBool();
@@ -87,13 +89,13 @@ Widget::Widget(QWidget *parent)
             }
             else if(value.isArray()){
                 QJsonArray provinces = value.toArray();
-                for(int j = 0;j<provinces.size();j++){
+                /*for(int j = 0;j<provinces.size();j++){
                     QJsonObject city = provinces[j].toObject();
                     QString capital = city["capital"].toString();
                     QString name = city["name"].toString();
                     qDebug()<<"name"<<":"<<name;
                     qDebug()<<"capital"<<":"<<capital;
-                }
+                }*/
             }
         }
     });
