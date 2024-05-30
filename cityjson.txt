@@ -1,0 +1,18 @@
+{
+    "info": {
+        "asian": "true",
+        "capital": "NanChang",
+        "founded": "1949"
+    },
+    "name": "china",
+    "provinces": [
+        {
+            "capital": "JiNan",
+            "name": "ShanDong"
+        },
+        {
+            "capital": "HangZhou",
+            "name": "ZheJiang"
+        }
+    ]
+}
